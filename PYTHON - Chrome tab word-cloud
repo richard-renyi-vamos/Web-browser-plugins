@@ -1,0 +1,21 @@
+import pygetwindow as gw
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+# Get a list of all open Chrome windows
+chrome_windows = [window.title for window in gw.getWindowsWithTitle("Google Chrome")]
+
+# Concatenate the window titles into a single string
+text = " ".join(chrome_windows)
+
+# Create a WordCloud object
+wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+
+# Display the Word Cloud
+plt.figure(figsize=(10, 5))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
+
+
+# CREATED WITH THE HELP OF OPEN-AI CHAT GPT: https://chat.openai.com/chat
